@@ -15,7 +15,7 @@
 
 <?php
         foreach($files as $file) {
-            if (($file != ".") && ($file != "..")) {
+            if (($file != ".") && ($file != "..") && ($file != "private") ) {
 ?>
         <div style="display:inline-block;min-width:250px;overflow:hidden;">
             <?= $file; ?>
