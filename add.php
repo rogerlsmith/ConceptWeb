@@ -1,3 +1,7 @@
+<!-- 
+    add.php
+-->
+
 <?php
     if (isset($_FILES['file']['tmp_name'])) {
         $file_path = "upload/";

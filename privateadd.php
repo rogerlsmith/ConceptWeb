@@ -1,3 +1,7 @@
+<!--
+    privateadd.php
+    adds media to private directory   
+-->
 <?php
     if (isset($_FILES['file']['tmp_name'])) {
         $file_path = "upload/private/";
