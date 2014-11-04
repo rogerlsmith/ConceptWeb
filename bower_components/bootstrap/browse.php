@@ -37,10 +37,10 @@
       <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
           <li role="presentation"><a href="/concept/bower_components/bootstrap">Home</a></li>
+          <li role="presentation"><a href="join.php">Login</a></li>
           <li role="presentation"  class="active"><a href="browse.php">Browse</a></li>
           <li role="presentation"><a href="http://rogerlsmith.net/concept/InstallApp/hybridConcept.apk">Get the App</a></li>
           <li role="presentation"><a href="help.html">About</a></li>
-          <li role="presentation"><a href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">Concept</h3>
       </div>
@@ -71,6 +71,8 @@
 
         }
 ?>
+        </div>
+      </div>
 
       <div class="footer">
         <p>&copy; <a href="http://rogerlsmith.net">ROGERLSMITH.NET</a> 2014</p>
