@@ -55,7 +55,7 @@
                     </ul>
 			<div id="myTabContent" class="tab-content">
                             <div class="tab-pane active in" id="login">
-                                <form class="form-horizontal" action='' method="POST">
+                                <form class="form-horizontal" action="login.php" method="post">
                                     <fieldset>
                                         <div id="legend">
                                             <legend class="">Login</legend>
@@ -87,7 +87,7 @@
                                 </form>                
                             </div>
 				<div class="tab-pane fade" id="create">
-                            <form id="tab">
+                            <form id="tab" action="register.php" method="post">
                                 <label>Username</label><input type="text" value="" class="input-xlarge" /><br />
                                 <label>First Name</label><input type="text" value="" class="input-xlarge" /><br />
                                 <label>Last Name</label><input type="text" value="" class="input-xlarge" /><br />
