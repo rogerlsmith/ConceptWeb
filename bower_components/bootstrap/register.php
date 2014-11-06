@@ -77,7 +77,7 @@ http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-
             $result = $stmt->execute($query_params); 
         } 
         catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage()); } 
-        header("Location: index.php"); 
-        die("Redirecting to index.php"); 
+        header("Location: index.html"); 
+        die("Redirecting to index.html"); 
     } 
 ?>
