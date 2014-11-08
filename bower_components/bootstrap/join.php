@@ -53,48 +53,51 @@
                         <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
                         <li><a href="#create" data-toggle="tab">Create Account</a></li>
                     </ul>
-			<div id="myTabContent" class="tab-content">
-                            <div class="tab-pane active in" id="login">
-                                <form class="form-horizontal" action="action="login.php"" method="post">
-                                    <fieldset>
-                                        <div id="legend">
-                                            <legend class="">Login</legend>
-                                        </div>    
-                                        <div class="control-group">
-                                            <!-- Username -->
-                                            <label class="control-label"  for="username">Username</label>
-                                            <div class="controls">
-                                                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                                            </div>
+                    
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane active in" id="login">
+                            <form class="form-horizontal" action="login.php" method="post">
+                                <fieldset>
+                                    <div id="legend">
+                                        <legend class="">Login</legend>
+                                    </div>    
+                                    <div class="control-group">
+                                        <!-- Username -->
+                                        <label class="control-label"  for="username">Username</label>
+                                        <div class="controls">
+                                                <input type="text" name="username" id="username" name="username" placeholder="" class="input-xlarge">
                                         </div>
+                                    </div>
 
-                                        <div class="control-group">
-                                            <!-- Password-->
-                                            <label class="control-label" for="password">Password</label>
-                                            <div class="controls">
-                                                <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                                            </div>
+                                    <div class="control-group">
+                                        <!-- Password-->
+                                        <label class="control-label" for="password">Password</label>
+                                        <div class="controls">
+                                            <input type="password" name="password" id="password" name="password" placeholder="" class="input-xlarge">
                                         </div>
+                                    </div>
 
 
-                                        <div class="control-group">
-                                            <!-- Button -->
-                                            <div class="controls">
-                                                    <button class="btn btn-success">Login</button>
-                                            </div>
+                                    <div class="control-group">
+                                        <!-- Button -->
+                                        <div class="controls">
+                                                <button class="btn btn-success">Login</button>
                                         </div>
-                                    </fieldset>
-                                </form>                
-                            </div>
-				<div class="tab-pane fade" id="create">
+                                    </div>
+                                </fieldset>
+                            </form>                
+                        </div>
+
+                        <div class="tab-pane fade" id="create">
                             <form id="tab" action="register.php" method="post">
-                                <label>Username</label><input type="text" value="" class="input-xlarge" /><br />
-                                <label>First Name</label><input type="text" value="" class="input-xlarge" /><br />
-                                <label>Last Name</label><input type="text" value="" class="input-xlarge" /><br />
-                                <label>Email</label><input type="text" value="" class="input-xlarge" /><br />
-                                <label>Password</label><input type="password" value=""  class="input-xlarge" />
+                                <label>Username</label><input type="text" value="" name="username" class="input-xlarge" /><br />
+                                <label>First Name</label><input type="text" value="" name="firstname" class="input-xlarge" /><br />
+                                <label>Last Name</label><input type="text" value="" name="lastname" class="input-xlarge" /><br />
+                                <label>Email</label><input type="text" value="" name="email" class="input-xlarge" /><br />
+                                <label>Password</label><input type="password" value=""  name="password" class="input-xlarge" />
                                 <div>
-                                    <button class="btn btn-primary">Create Account</button>
+                                    <input type="submit" value="submit" />
+                                    <button class="btn btn-primary" onclick="submitform">Create Account</button>
                                 </div>
                             </form>
                         </div>

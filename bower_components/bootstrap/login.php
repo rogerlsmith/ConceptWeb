@@ -2,7 +2,7 @@
 http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-bootstrap/
 -->
 <?php 
-    require("config.php"); 
+    require("config/config.php"); 
     $submitted_username = ''; 
     if(!empty($_POST)){ 
         $query = " 

@@ -7,6 +7,7 @@
 
 <?php 
     require("config/config.php");
+
     if(!empty($_POST)) 
     { 
         // Ensure that the user fills out fields 
