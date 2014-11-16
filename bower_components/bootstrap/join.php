@@ -96,7 +96,6 @@
                                 <label>Email</label><input type="text" value="" name="email" class="input-xlarge" /><br />
                                 <label>Password</label><input type="password" value=""  name="password" class="input-xlarge" />
                                 <div>
-                                    <input type="submit" value="submit" />
                                     <button class="btn btn-primary" onclick="submitform">Create Account</button>
                                 </div>
                             </form>
