@@ -41,8 +41,8 @@ http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-
             unset($row['salt']); 
             unset($row['password']); 
             $_SESSION['user'] = $row;  
-            header("Location: secret.php"); 
-            die("Redirecting to: secret.php"); 
+            header("Location: my-messages.php"); 
+            die("Redirecting to homepage"); 
         } 
         else{ 
             print("Login Failed."); 
