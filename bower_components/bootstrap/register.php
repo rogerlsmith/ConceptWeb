@@ -10,6 +10,7 @@
 
     if(!empty($_POST)) 
     { 
+           var_dump ($_POST);
         // Ensure that the user fills out fields 
         if(empty($_POST['username'])) 
         { die("Please enter a username."); } 
