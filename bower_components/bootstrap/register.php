@@ -4,12 +4,14 @@
 
 -->
 
-<?php 
-    require("API/registerUser.php");
+<?php
 
+    require("API/registerUser.php");
+ 
     if(!empty($_POST)) 
-    { 
-        registerUser();
+    {
+        $retVal = registerUser();
+        var_dump($retVal);
         header("Location: index.html"); 
         die("Redirecting to index.html"); 
     } 

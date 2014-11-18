@@ -1,8 +1,8 @@
 <?php
-require("config/config.php");
-
 
 function registerUser() {
+    require("config/config.php");
+
     // Ensure that the user fills out fields 
     if(empty($_POST['username'])) 
     { die("Please enter a username."); } 
@@ -43,6 +43,7 @@ function registerUser() {
     } 
     catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage());} 
     $row = $stmt->fetch(); 
+
     if($row){ die("This email address is already registered"); } 
 
     // Add row to database 
@@ -75,5 +76,7 @@ function registerUser() {
         $result = $stmt->execute($query_params); 
     } 
     catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage()); } 
+    
+    return(0);
 }
 ?>
