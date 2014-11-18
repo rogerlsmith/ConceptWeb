@@ -11,7 +11,6 @@
     if(!empty($_POST)) 
     {
         $retVal = registerUser();
-        var_dump($retVal);
         header("Location: index.html"); 
         die("Redirecting to index.html"); 
     } 
