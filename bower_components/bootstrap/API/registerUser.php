@@ -1,7 +1,7 @@
 <?php
 
 function registerUser() {
-    require("config/config.php");
+    require("../config/config.php");
 
     // Ensure that the user fills out fields 
     if(empty($_POST['username'])) 
