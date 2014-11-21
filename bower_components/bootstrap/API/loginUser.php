@@ -1,5 +1,5 @@
 <?php
-function registerUser() {
+function loginUser() {
     
     $login_ok = false;    
     require("../config/config.php"); 
