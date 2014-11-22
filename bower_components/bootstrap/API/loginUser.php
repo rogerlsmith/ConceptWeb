@@ -1,10 +1,9 @@
 <?php
 function loginUser() {
     
-    $login_ok = false;    
-    require("../config/config.php"); 
-    
-    $submitted_username = ''; 
+    $row = null;    
+    require("config/config.php"); 
+
     if(!empty($_POST)){ 
         $query = " 
             SELECT 
@@ -38,6 +37,6 @@ function loginUser() {
             } 
         }  
     }
-    return ($login_ok);
+    return ($row);
 }
 ?> 

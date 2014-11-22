@@ -10,12 +10,11 @@
  
     if(!empty($_POST)) 
     {
-        $retVal = loginUser();
-        
-        if ($retVal) {
+        $row = loginUser();
+        if ($row!=null) {
             unset($row['salt']); 
             unset($row['password']); 
-            $_SESSION['user'] = $row;  
+            $_SESSION['user'] = $row;
             header("Location: my-messages.php"); 
             die("Redirecting to homepage"); 
         } 
