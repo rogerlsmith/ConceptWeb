@@ -30,6 +30,7 @@ http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-
                 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
                 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
             </head>
+            
             <body>
                 <div class="container">
                    <div class="header">
@@ -48,9 +49,7 @@ http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-
 <?php
                         $files = scandir('../../upload');
                         sort($files);                         // this does the sorting
-?>
-                     <!--   <div style="display:inline;"> -->
-<?php
+
                         foreach($files as $file) {
                             if (($file != ".") && ($file != "..") && ($file != "private") ) {
 ?>
@@ -64,12 +63,12 @@ http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-
                                     </audio>
                                 </div>
 <?php
+                            }
                         }
 ?>
-                 <!--       </div><div style="clear:both;"></div>  -->
-<?php
-        }
-?>
+                    </div>
+                    <div class="footer">
+                        <p>&copy; <a href="http://rogerlsmith.net">ROGERLSMITH.NET</a> 2014</p>
                     </div>
                 </div>
             </body>
