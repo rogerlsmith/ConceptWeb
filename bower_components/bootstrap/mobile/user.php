@@ -1,26 +1,22 @@
 <?php
 
-    require("../API/loginUser.php");
-    require("../API/registerUser.php");
+    require ( "../API/loginUser.php" );
+    require ( "../API/registerUser.php" );
 
     $success = false;
 
     if ( !empty ( $_POST ) ) 
     {
-     
         switch ( $_POST['method'] ) {
  
             case "login" :
-                $retVal = loginUser();
-               if ($retVal) {
-                    $success = true;
-                }
+                $retVal = loginUser ( );     // returns a string "success" or "fail"
                 break;
             
             case "register" :
- //               $retVal = registerUser();
+//                $retVal = registerUser();
 //               if ($retVal) {
-                    $success = true;
+//                    $success = true;
 //                }
                 break;
             
@@ -28,9 +24,7 @@
                 $retVal = "Error";
                 break;
         }
-
     }
-
-   
-    echo ($success);
+   $response['login'] = $retVal;
+   echo ( json_encode($response) );
 ?>

@@ -2,7 +2,8 @@
 function loginUser() {
     
     $row = null;    
-    require("config/config.php"); 
+    require( "../config/config.php" );
+    $login_status = "fail";
 
     if(!empty($_POST)){ 
         $query = " 
@@ -33,10 +34,10 @@ function loginUser() {
                 $check_password = hash('sha256', $check_password . $row['salt']);
             } 
             if($check_password === $row['password']){
-                $login_ok = true;
+                $login_status = "success";
             } 
         }  
     }
-    return ($row);
+    return ( $login_status );
 }
 ?> 
