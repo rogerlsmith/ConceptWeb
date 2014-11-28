@@ -1,30 +1,29 @@
 <?php
 
-    require ( "../API/loginUser.php" );
-    require ( "../API/registerUser.php" );
-
-    $success = false;
-
-    if ( !empty ( $_POST ) ) 
-    {
+    require "../API/loginUser.php" ;
+    require "../API/registerUser.php";
+    
+    if ( !empty ( $_POST ) ) {
+        
         switch ( $_POST['method'] ) {
  
             case "login" :
-                $retVal = loginUser ( );     // returns a string "success" or "fail"
+                $json = loginUser ( );
+                $loginObj = json_decode ( $json );
+                $response['login'] = $loginObj->status;
                 break;
             
             case "register" :
-//                $retVal = registerUser();
-//               if ($retVal) {
-//                    $success = true;
-//                }
+                $retVal = registerUser ( );
+                $response['register'] = $retVal;
                 break;
             
             default:
                 $retVal = "Error";
+                $response['user'] = $retVal;
                 break;
         }
     }
-   $response['login'] = $retVal;
-   echo ( json_encode($response) );
+   
+   echo ( json_encode ( $response ) );
 ?>

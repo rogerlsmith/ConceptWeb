@@ -1,6 +1,6 @@
 <?php
-    require("../API/addAudio.php");
-    require("../API/uploadAudio.php");
+    require "../API/addAudio.php";
+    require "../API/uploadAudio.php";
     
     var_dump ($_POST);
     
