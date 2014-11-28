@@ -1,7 +1,9 @@
 <?php
 
 function registerUser() {
-    require("config/config.php");
+    
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/config/config.php";
+    require "$path";
 
     // Ensure that the user fills out fields 
     if(empty($_POST['username'])) 

@@ -1,11 +1,8 @@
-<!-- 
-http://untame.net/2013/06/how-to-build-a-functional-login-form-with-php-twitter-bootstrap/
--->
-<?php
-    require("config/config.php");
 
-    if(!empty($_SESSION['user'])) 
-    {
+<?php
+    require "config/config.php" ;
+
+    if ( !empty($_SESSION['user'] ) ) {
 ?>
         <html>
             <head>

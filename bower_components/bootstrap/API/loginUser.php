@@ -1,4 +1,5 @@
 <?php
+
 function loginUser() {
 
     $row = null;
@@ -47,4 +48,5 @@ function loginUser() {
     }
     return ( json_encode($loginObj) );
 }
+
 ?> 

@@ -1,7 +1,7 @@
 
 <?php
 
-    require( "API/loginUser.php" );
+    require "API/loginUser.php";
 
     $json = loginUser ( );
     $loginObj = json_decode ( $json );
