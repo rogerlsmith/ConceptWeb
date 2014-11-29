@@ -6,12 +6,12 @@ function registerUser() {
     require "$path";
 
     // Ensure that the user fills out fields 
-    if(empty($_POST['username'])) 
-    { die("Please enter a username."); } 
-    if(empty($_POST['password'])) 
-    { die("Please enter a password."); } 
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-    { die("Invalid E-Mail Address"); } 
+    if ( empty ( $_POST['username'] ) ) 
+    { die ( "Please enter a username." ); } 
+    if ( empty ( $_POST['password'] ) ) 
+    { die ( "Please enter a password." ); } 
+    if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
+    { die ( "Invalid E-Mail Address" ); } 
 
     // Check if the username is already taken
     $query = " 
