@@ -7,14 +7,18 @@
         switch ($_POST['method']) {
             
             case "public":
-                if ( uploadPublicAudio ( ) ) {
-                    addAudio ( );
+                $retObj =  uploadPublicAudio ( );
+                if ( $retObj['success'] ) {
+ 
+                    addAudio ( $retObj['path'] );
                 }
                 break;
             
             case "private":
-                if ( uploadPrivateAudio ( ) ) {
-                    addAudio ( );
+                $retObj =  uploadPrivateAudio ( );
+                if ( $retObj['success'] ) {
+ 
+                    addAudio ( $retObj['path'] );
                 }
                 break;
             
