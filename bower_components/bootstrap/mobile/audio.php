@@ -3,8 +3,8 @@
     require "../API/addAudio.php";
     require "../API/uploadAudio.php";
     
-    if(!empty($_POST)) {
-        switch ($_POST['method']) {
+    if ( !empty ( $_POST ) ) {
+        switch ( $_POST['method'] ) {
             
             case "public":
                 $retObj =  uploadPublicAudio ( );
