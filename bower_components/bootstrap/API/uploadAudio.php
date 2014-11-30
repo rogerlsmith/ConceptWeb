@@ -1,10 +1,12 @@
 <?php
 
 function uploadPublicAudio ( ) {
+
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/API/addAudio.php";
+    require "$path";
     
-    require "addAudio.php";
     $retObj = null;
-    
+
     if ( isset ( $_FILES['file']['tmp_name'] ) ) {
         $file_path = $_SERVER['DOCUMENT_ROOT'] . "/concept/upload/";
         $file_path = $file_path . basename( $_FILES['file']['tmp_name'] ) .".mp3";
@@ -12,12 +14,14 @@ function uploadPublicAudio ( ) {
         $retObj['path'] = $file_path;
     }
     
-    return $retVal;
+    return $retObj;
 }
 
 function uploadPrivateAudio ( ) {
     
-    require "addAudio.php";
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/API/addAudio.php";
+    require "$path";
+    
     $retObj = null;
     
     if ( isset ( $_FILES['file']['tmp_name'] ) ) {
