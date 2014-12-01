@@ -9,12 +9,10 @@
             case "public":
 
                 $retObj =  uploadPublicAudio ( );
-                var_dump($retObj);
-                return;
                 if ( $retObj['success'] ) {
  
                     addAudio ( $retObj['path'] );
-                }
+                } 
                 break;
             
             case "private":
