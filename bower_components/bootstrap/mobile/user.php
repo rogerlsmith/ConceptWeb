@@ -11,6 +11,7 @@
                 $json = loginUser ( );
                 $loginObj = json_decode ( $json );
                 $response['login'] = $loginObj->status;
+                $response['user'] = $loginObj->user;
                 break;
             
             case "register" :
