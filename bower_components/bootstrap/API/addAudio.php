@@ -1,10 +1,10 @@
 <?php
 
-function addAudio ( $path ) {
+function addAudio ( $user_id, $path ) {
     
     require_once $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/config/config.php';
     
-//    if ( $_SESSION['user']['id'] ) {
+    if ( $user_id ) {
         
         // Add row to database 
         $query = " 
@@ -18,7 +18,7 @@ function addAudio ( $path ) {
         ";
         
         $query_params = array( 
-            ':owner' => $_SESSION['user']['id'], 
+            ':owner' => $user_id, 
             ':path' => $path
         );
         try {  
@@ -26,7 +26,7 @@ function addAudio ( $path ) {
             $result = $stmt->execute( $query_params ); 
         } 
         catch ( PDOException $ex ) { die("Failed to run query: " . $ex->getMessage()); } 
-//    }
+    }
 }
 
 ?>

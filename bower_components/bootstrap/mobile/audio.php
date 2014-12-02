@@ -11,7 +11,7 @@
                 $retObj =  uploadPublicAudio ( );
                 if ( $retObj['success'] ) {
  
-                    addAudio ( $retObj['path'] );
+                    addAudio ( $_POST['user_id'], $retObj['path'] );
                 } 
                 break;
             
@@ -20,7 +20,7 @@
                 $retObj =  uploadPrivateAudio ( );
                 if ( $retObj['success'] ) {
  
-                    addAudio ( $retObj['path'] );
+                    addAudio ( $_POST['user_id'], $retObj['path'] );
                 }
                 break;
             
