@@ -8,16 +8,16 @@
             
             case "public":
 
-                $retObj =  uploadPublicAudio ( );
+                $retObj =  uploadPublicAudio ( $_FILES['file']['tmp_name'] );
                 if ( $retObj['success'] ) {
- 
+                    
                     addAudio ( $_POST['user_id'], $retObj['path'] );
                 } 
                 break;
             
             case "private":
                 
-                $retObj =  uploadPrivateAudio ( );
+                $retObj =  uploadPrivateAudio ( $_FILES['file']['tmp_name'] );
                 if ( $retObj['success'] ) {
  
                     addAudio ( $_POST['user_id'], $retObj['path'] );
