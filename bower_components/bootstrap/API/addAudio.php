@@ -1,6 +1,6 @@
 <?php
 
-function addAudio ( $user_id, $path ) {
+function addAudio ( $user_id, $path, $method ) {
     
     require_once $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/config/config.php';
     
@@ -16,7 +16,7 @@ function addAudio ( $user_id, $path ) {
                 :path
             ) 
         ";
-        
+       
         $query_params = array( 
             ':owner' => $user_id, 
             ':path' => $path

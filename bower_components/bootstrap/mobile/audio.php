@@ -1,31 +1,19 @@
 <?php
 
+    $file = $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/mobile/logfile.txt';
+
+    file_put_contents($file, json_encode($_POST));
+    
     require "../API/addAudio.php";
     require "../API/uploadAudio.php";
+    
+    if ( ( !empty ( $_POST ) ) && ( $_POST['user_id'] != null ) ) {
 
-    if ( !empty ( $_POST ) ) {
-        switch ( $_POST['method'] ) {
-            
-            case "public":
+        $retObj =  uploadAudio ( $_FILES['file']['tmp_name'] );
+        if ( $retObj['success'] ) {
 
-                $retObj =  uploadPublicAudio ( $_FILES['file']['tmp_name'] );
-                if ( $retObj['success'] ) {
-                    
-                    addAudio ( $_POST['user_id'], $retObj['path'] );
-                } 
-                break;
+            addAudio ( $_POST['user_id'], $retObj['path'], $_POST['method'] );
             
-            case "private":
-                
-                $retObj =  uploadPrivateAudio ( $_FILES['file']['tmp_name'] );
-                if ( $retObj['success'] ) {
- 
-                    addAudio ( $_POST['user_id'], $retObj['path'] );
-                }
-                break;
-            
-            default:
-                break;
-        }
+        }        
     }
 ?>
