@@ -1,16 +1,25 @@
 <?php
 
+    $json="";
     require "../API/browseAudio.php" ;
     
     if ( !empty ( $_POST ) ) {
         
         switch ( $_POST['method'] ) {
+            case "all" :
+                $json = myMessages ( );
+                $json += publicMessages ( );
+                break;
             case "myMessages" :
-                myMessages ( );
+                $json = myMessages ( );
                 break;
             case "publicMessages" :
-                publicMessages ( );
+                $json = publicMessages ( );
+                break;
+            default:
                 break;
         }
     }
+    
+    echo $json;
 ?>
