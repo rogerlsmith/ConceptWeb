@@ -10,7 +10,8 @@ function loginUser() {
     $loginObj['status'] = "fail";
     $loginObj['user'] = null;
 
-    if(!empty($_POST)){ 
+    if ( !empty ( $_POST ) ) {
+        
         $query = " 
             SELECT 
                 id, 
