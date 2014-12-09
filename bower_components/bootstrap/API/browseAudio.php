@@ -30,6 +30,7 @@ function myMessages ( ) {
     $messages = $stmt->fetch(); 
     if ( $messages ) {
         $i = 0;
+        
         foreach ( $messages as $message ) {
             $obj[$i] = $message;
             $i++;
@@ -65,9 +66,10 @@ function publicMessages ( ) {
         die ( "Failed to run query: " . $ex->getMessage ( ) );     
     } 
     
-    $messages = $stmt->fetch(); 
+    $messages = $stmt->fetch ( ); 
     if ( $messages ) {
         $i = 0;
+        
         foreach ( $messages as $message ) {
             $obj[$i] = $message;
             $i++;
