@@ -1,16 +1,18 @@
 <?php
 
-function loginUser ( ) {
+function loginUser ( $u, $p ) {
+    
+    $file = $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/mobile/logfile.txt';
 
     $row = null;
 
     $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/config/config.php";
     require "$path";
-
+    
     $loginObj['status'] = "fail";
     $loginObj['user'] = null;
 
-    if ( !empty ( $_POST ) ) {
+    if ( !empty ( $u ) && ( !empty ( $p ) ) ) {
         
         $query = " 
             SELECT 
@@ -24,7 +26,7 @@ function loginUser ( ) {
                 username = :username 
         "; 
         $query_params = array ( 
-            ':username' => $_POST['username'] 
+            ':username' => $u
         ); 
           
         try { 
@@ -37,7 +39,7 @@ function loginUser ( ) {
 
         $row = $stmt->fetch(); 
         if ( $row ) { 
-            $check_password = hash('sha256', $_POST['password'] . $row['salt']);
+            $check_password = hash ( 'sha256', $p . $row['salt'] );
             
             for($round = 0; $round < 65536; $round++){
                 $check_password = hash ( 'sha256', $check_password . $row['salt'] );
