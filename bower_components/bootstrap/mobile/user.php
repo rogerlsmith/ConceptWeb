@@ -15,17 +15,20 @@
         switch ( $data->method ) {
  
             case "login" :
-
                 $json = loginUser ( $data->username, $data->password );
                 $loginObj = json_decode ( $json );
                 $response['login'] = $loginObj->{'status'};
                 $response['user'] = $loginObj->{'user'};
-                
                 break;
             
             case "register" :
                 $retVal = registerUser ( );
                 $response['register'] = $retVal;
+                break;
+            
+            case "resetPassword" :
+                $retVal = resetPassword ( $data->username, $data->email );
+                $response['reset'] = $retVal;
                 break;
             
             default:
