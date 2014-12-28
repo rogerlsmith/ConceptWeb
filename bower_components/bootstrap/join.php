@@ -91,8 +91,6 @@
                         <div class="tab-pane fade" id="create">
                             <form id="tab" action="register.php" method="post">
                                 <label style ="width:110px;">Username</label><input type="text" value="" name="username" class="input-xlarge" /><br />
-                                <label style ="width:110px;">First Name</label><input type="text" value="" name="firstname" class="input-xlarge" /><br />
-                                <label style ="width:110px;">Last Name</label><input type="text" value="" name="lastname" class="input-xlarge" /><br />
                                 <label style ="width:110px;">Email</label><input type="text" value="" name="email" class="input-xlarge" /><br />
                                 <label style ="width:110px;">Password</label><input type="password" value=""  name="password" class="input-xlarge" />
                                 <div>
