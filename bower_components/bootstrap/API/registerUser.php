@@ -1,16 +1,16 @@
 <?php
 
-function registerUser() {
+function registerUser ( $u, $e, $p ) {
     
     $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/config/config.php";
     require "$path";
 
     // Ensure that the user fills out fields 
-    if ( empty ( $_POST['username'] ) ) 
+    if ( empty ( $u ) ) 
     { die ( "Please enter a username." ); } 
-    if ( empty ( $_POST['password'] ) ) 
+    if ( empty ( $p ) ) 
     { die ( "Please enter a password." ); } 
-    if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
+    if ( !filter_var ( $e, FILTER_VALIDATE_EMAIL)) 
     { die ( "Invalid E-Mail Address" ); } 
 
     // Check if the username is already taken
@@ -21,14 +21,15 @@ function registerUser() {
         WHERE 
             username = :username 
     "; 
-    $query_params = array( ':username' => $_POST['username'] ); 
+    $query_params = array ( ':username' => $u ); 
     try { 
-        $stmt = $db->prepare($query); 
-        $result = $stmt->execute($query_params); 
+        $stmt = $db->prepare ( $query ); 
+        $result = $stmt->execute ( $query_params ); 
     } 
-    catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage()); } 
-    $row = $stmt->fetch(); 
-    if($row){ die("This username is already in use"); } 
+    catch ( PDOException $ex ){ die ( "Failed to run query: " . $ex->getMessage ( ) ); } 
+    
+    $row = $stmt->fetch ( ); 
+    if ( $row ){ die("This username is already in use"); } 
     $query = " 
         SELECT 
             1 
@@ -37,10 +38,10 @@ function registerUser() {
             email = :email 
     "; 
     $query_params = array( 
-        ':email' => $_POST['email'] 
+        ':email' => $e 
     ); 
     try { 
-        $stmt = $db->prepare($query); 
+        $stmt = $db->prepare ( $query ); 
         $result = $stmt->execute($query_params); 
     } 
     catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage());} 
@@ -65,20 +66,21 @@ function registerUser() {
 
     // Security measures
     $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647)); 
-    $password = hash('sha256', $_POST['password'] . $salt); 
+    $password = hash('sha256', $p . $salt); 
     for($round = 0; $round < 65536; $round++){ $password = hash('sha256', $password . $salt); } 
+    
     $query_params = array( 
-        ':username' => $_POST['username'], 
+        ':username' => $u, 
         ':password' => $password, 
         ':salt' => $salt, 
-        ':email' => $_POST['email'] 
+        ':email' => $e 
     ); 
     try {  
         $stmt = $db->prepare($query); 
         $result = $stmt->execute($query_params); 
     } 
-    catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage()); } 
+    catch ( PDOException $ex ){ die ( "Failed to run query: " . $ex->getMessage ( ) ); } 
     
-    return(0);
+    return ( 0 );
 }
 ?>

@@ -22,7 +22,9 @@
                 break;
             
             case "register" :
-                $retVal = registerUser ( );
+                $retVal = registerUser ( $data->username,
+                                            $data->email,
+                                            $data->password );
                 $response['register'] = $retVal;
                 break;
             
