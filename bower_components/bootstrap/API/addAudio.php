@@ -4,8 +4,8 @@ function addAudio ( $user_id, $path, $method ) {
     
     require_once $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/config/config.php';
     
-//    $file = $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/mobile/logfile.txt';
-//    file_put_contents($file, $method);
+    $file = $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/mobile/logfile.txt';
+    file_put_contents($file, $method, FILE_APPEND);
     
     if ( $user_id ) {
         

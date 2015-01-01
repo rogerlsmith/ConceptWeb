@@ -6,8 +6,8 @@
     $json = loginUser ( $_POST['username'], $_POST['password'] );
     $loginObj = json_decode ( $json );
 
-    if ( $loginObj->status == "success" ) {
-        $_SESSION['user'] = $loginObj->user;
+    if ( $loginObj->{'status'} == "success" ) {
+        $_SESSION['user'] = $loginObj->{'user'};
         header ( "Location: my-messages.php" ); 
         die ( "Redirecting to homepage" ); 
     } 
