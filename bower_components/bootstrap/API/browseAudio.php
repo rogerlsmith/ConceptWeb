@@ -16,7 +16,7 @@ function myMessages ( ) {
     ";
     
     $query_params = array ( 
-        ':private' => 'true' 
+        ':private' => '1'
     ); 
 
     try { 
@@ -44,19 +44,24 @@ function publicMessages ( ) {
     $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/config/config.php";
     require "$path";
     
+//    $oldquery = " 
+//        SELECT 
+//            owner, 
+//            path, 
+//            private, 
+//        FROM audio 
+//        WHERE 
+//            private = :private 
+//    ";
+//    $query_params = array ( 
+//        ':private' => 0
+//    ); 
     $query = " 
-        SELECT 
-            owner, 
-            path, 
-            private, 
+        SELECT * 
         FROM audio 
-        WHERE 
-            private = :private 
     ";
         
-    $query_params = array ( 
-        ':private' => 'false' 
-    ); 
+
 
     try { 
         $stmt = $db->prepare ( $query ); 
@@ -75,5 +80,7 @@ function publicMessages ( ) {
             $i++;
         }
     }
+    
+    return json_encode( $obj );
 }
 ?>
