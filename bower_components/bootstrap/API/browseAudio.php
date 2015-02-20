@@ -44,6 +44,9 @@ function publicMessages ( ) {
     $path = $_SERVER['DOCUMENT_ROOT'] . "/concept/bower_components/bootstrap/config/config.php";
     require "$path";
     
+    $file = $_SERVER['DOCUMENT_ROOT'] . '/concept/bower_components/bootstrap/mobile/logfile.txt';
+
+    
 //    $oldquery = " 
 //        SELECT 
 //            owner, 
@@ -58,24 +61,31 @@ function publicMessages ( ) {
 //    ); 
     $query = " 
         SELECT * 
-        FROM audio 
+        FROM audio
+        WHERE
+        owner = :owner
     ";
         
+        $query_params = array ( 
+        ':owner' => '5'
+    ); 
 
 
     try { 
-        $stmt = $db->prepare ( $query ); 
-        $result = $stmt->execute ( $query_params ); 
+        $stmt = $db->prepare( $query ); 
+        $result = $stmt->execute( $query_params ); 
     } 
     catch ( PDOException $ex ){ 
-        die ( "Failed to run query: " . $ex->getMessage ( ) );     
-    } 
+        die( "Failed to run query: " . $ex->getMessage ( ) );     
+    }
     
-    $messages = $stmt->fetch ( ); 
-    if ( $messages ) {
+    $messages = $stmt->fetchAll( ); 
+    
+    if( $messages ) {
         $i = 0;
         
-        foreach ( $messages as $message ) {
+        foreach( $messages as $message ) {
+            
             $obj[$i] = $message;
             $i++;
         }
